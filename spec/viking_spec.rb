@@ -3,6 +3,7 @@ require 'viking.rb'
 
 describe Viking do
 	# most cases I re-initialize this. Is that bad?
+
 	context "creating" do
 
 		describe "#name" do

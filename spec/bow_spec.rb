@@ -3,16 +3,17 @@ require 'weapons/bow'
 
 
 describe Bow do
-	# I want to use intance_double
+	# I want to use instance_double
 	let(:bow){Bow.new}
 
 	describe "#arrows" do
 
 		specify "arrow count is readable" do
 			# the second test acutally confirms that this is readable
-			expect(bow.arrows).not_to be_nil
+			expect{bow.arrows}.not_to raise_error
 		end
-
+	end
+	describe "#initialize" do
 		context "when arrows are not specified" do
 			it "starts with ten arrows" do
 				expect(bow.arrows).to eq(10)
@@ -41,6 +42,7 @@ describe Bow do
 			# this just feels wrong...
 			# I want to test if the method works without actually calling it
 			# in the terminal.
+			bow = Bow.new()
 			expect{11.times{bow.use}}.to raise_error
 		end
 	end
